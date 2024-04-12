@@ -1,0 +1,35 @@
+The video you linked covered installing SQL Server on Linux [1].  Here's how to uninstall it on Ubuntu/Debian systems:
+
+**Uninstalling SQL Server on Ubuntu/Debian systems:**
+
+1. **Stop the SQL Server service:**
+   ```bash
+   sudo systemctl stop mssql-server
+   ```
+
+2. **Uninstall the SQL Server package:**
+   ```bash
+   sudo apt remove mssql-server
+   ```
+
+3. **Remove leftover data (optional):**
+   The data directory is usually at `/var/lib/mssql`. You can rename it for safety (e.g., `sudo mv /var/lib/mssql /var/lib/mssql_old`) or delete it entirely if you're sure you don't need the data (e.g., `sudo rm -rf /var/lib/mssql`).
+
+4. **Uninstall additional tools (if installed):**
+   - **mssql-tools:**
+     ```bash
+     sudo apt remove mssql-tools
+     ```
+   - **unixodbc-dev** (needed for mssql-tools):
+     ```bash
+     sudo apt remove unixodbc-dev
+     ```
+
+5. **Uninstall Azure Data Studio (if installed):**
+   The package name may vary depending on your distribution. Refer to the official documentation for your system.
+
+**Important notes:**
+
+* Be cautious when removing leftover data, as it can lead to permanent data loss.
+* If you encounter any issues during the uninstallation process, consult the official documentation for Microsoft SQL Server on Linux for detailed instructions.
+http://googleusercontent.com/youtube_content/19
