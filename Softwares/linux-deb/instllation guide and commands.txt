@@ -1,0 +1,45 @@
+tutorial from:
+https://learn.microsoft.com/en-us/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver16&tabs=ubuntu2204
+
+
+
+step 1:
+curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor -o /usr/share/keyrings/microsoft-prod.gpg
+
+step 2:
+sudo cp /usr/share/keyrings/microsoft-prod.gpg /etc/apt/trusted.gpg.d/
+
+step 3:
+curl -fsSL https://packages.microsoft.com/config/debian/12/mssql-server-2022.list | sudo tee /etc/apt/sources.list.d/mssql-server-2022.list
+
+step 4:
+sudo apt-get update
+
+step 5:
+sudo apt-get install -y mssql-server
+
+step 6:
+sudo /opt/mssql/bin/mssql-conf setup
+
+step 7:
+systemctl status mssql-server --no-pager
+
+step 8:
+find the index for debian 12:
+https://packages.microsoft.com/config/debian/12/
+
+curl https://packages.microsoft.com/config/debian/12/prod.list | sudo tee /etc/apt/sources.list.d/mssql-release.list
+
+step 9:
+sudo apt-get update
+sudo apt-get install mssql-tools18 unixodbc-dev
+
+step 10:
+Download and install azure data studio
+
+step 11:
+server: .
+user name: sa
+password: [password given in step 6]
+
+
